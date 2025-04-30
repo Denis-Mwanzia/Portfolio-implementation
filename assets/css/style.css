@@ -5,37 +5,48 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    background: var(--bg);
-    color: var(--text);
-    transition: background 0.3s, color 0.3s;
-}
-
 html,
 body {
     overflow-x: hidden;
     height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+    background: var(--bg);
+    color: var(--text);
 }
 
 /* — Color Variables — */
 :root {
     --primary: #00d084;
     --white: #ffffff;
-    --dark-bg: #203a43;
-    --light-bg: #f5f5f5;
-    --dark-text: #f5f5f5;
     --light-text: #203a43;
+    --dark-text: #f5f5f5;
+
+    --dark-bg: #0f2027;
+    --dark-bg-alt: #203a43;
+    --light-bg: #f5f5f5;
     --bg: var(--dark-bg);
     --text: var(--dark-text);
+    --border-color: var(--white);
+
+    --header-bg: rgba(15, 32, 39, 0.85);
+    --header-bg-light: rgba(255, 255, 255, 0.85);
+
+    --overlay-dark: rgba(0, 0, 0, 0.2);
+    --overlay-light: rgba(255, 255, 255, 0.2);
+    --overlay: var(--overlay-dark);
 }
 
 body.light {
     --bg: var(--light-bg);
     --text: var(--light-text);
+    --border-color: var(--light-text);
+    --header-bg: var(--header-bg-light);
+    --overlay: var(--overlay-light);
 }
 
+/* — Media Elements — */
 img,
 video,
 canvas {
@@ -43,25 +54,65 @@ canvas {
     height: auto;
 }
 
-/* — Header / Nav — */
+/* — Header + Hero Background — */
+.header-hero {
+    position: relative;
+    background: var(--dark-bg), linear-gradient(to right, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.9)), url('../img/bg-img.jpg') center/cover no-repeat;
+    background-blend-mode: overlay, normal;
+}
+
+.header-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 32, 39, 0.4);
+    z-index: 0;
+}
+
+body.light .header-hero {
+    background: var(--light-bg), linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.9)), url('../img/bg-img.jpg') center/cover no-repeat;
+}
+
+body.light .header-hero::before {
+    background: rgba(245, 245, 245, 0.5);
+}
+
+.header-hero>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* — Container — */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 21rem;
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+/* — Sticky Header — */
 #site-header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(15, 32, 39, 0.85);
+    background: var(--header-bg);
     backdrop-filter: blur(10px);
 }
 
-.header-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16rem;
-    max-width: calc(1200px - 4rem);
-    margin: 0 auto;
-    padding: 1rem 2rem;
-}
-
+/* — Logo — */
 .logo {
     display: flex;
     align-items: center;
@@ -70,19 +121,15 @@ canvas {
 
 .logo img {
     width: 36px;
-    height: auto;
 }
 
 .logo span {
-    color: var(--white);
     font-size: 1.25rem;
     font-weight: 700;
+    color: var(--text);
 }
 
-body.light .logo span {
-    color: var(--light-text);
-}
-
+/* — Navigation — */
 nav {
     display: flex;
     align-items: center;
@@ -100,22 +147,18 @@ nav {
     position: relative;
 }
 
-nav ul li a {
+.nav-menu li a {
     text-decoration: none;
-    color: var(--white);
     font-weight: 500;
+    color: var(--text);
     transition: color 0.3s;
 }
 
-body.light nav ul li a {
-    color: var(--light-text);
-}
-
-nav ul li a:hover {
+.nav-menu li a:hover {
     color: var(--primary);
 }
 
-/* Dropdown */
+/* — Dropdown — */
 .nav-menu li.dropdown>a {
     display: flex;
     align-items: center;
@@ -126,26 +169,25 @@ nav ul li a:hover {
     position: absolute;
     top: 100%;
     left: 0;
+    min-width: 180px;
     background: var(--bg);
-    list-style: none;
     padding: 0.5rem 0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: none;
-    min-width: 180px;
     z-index: 1000;
 }
 
 .dropdown-menu li a {
     display: block;
     padding: 0.5rem 1rem;
-    color: var(--white);
     white-space: nowrap;
-    transition: background 0.2s;
+    color: var(--text);
+    transition: background 0.2s, color 0.2s;
 }
 
 .dropdown-menu li a:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--overlay);
     color: var(--primary);
 }
 
@@ -155,7 +197,7 @@ nav ul li a:hover {
     }
 }
 
-/*  Hire Buttons */
+/* — Buttons — */
 .nav-menu li.hire a {
     display: inline-block;
     background: var(--primary);
@@ -163,37 +205,34 @@ nav ul li a:hover {
     padding: 0.5rem 1rem;
     border-radius: 25px;
     font-weight: 600;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s;
 }
 
 .nav-menu li.hire a:hover {
     background: #02b075;
 }
 
-body.light .nav-menu li.hire a {
-    background: var(--bg);
-    color: var(--light-text);
+.nav-menu li.contact-btn a {
+    background: transparent;
+    padding: 0;
+    border: none;
+    font-weight: 500;
+    color: var(--text);
 }
 
-/* Search & Dark-mode toggle */
+.nav-menu li.contact-btn a:hover {
+    color: var(--primary);
+}
+
+/* — Light/Dark Mode Toggle — */
 .lightDark-mode {
     cursor: pointer;
     font-size: 1.2rem;
-    color: var(--white);
+    color: var(--text);
     transition: color 0.3s;
 }
 
-body.light .lightDark-mode {
-    color: var(--light-text);
-}
-
 /* — Hero Section — */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
 .row {
     display: flex;
     align-items: center;
@@ -206,18 +245,26 @@ body.light .lightDark-mode {
     flex: 1 1 45%;
 }
 
-.col1 h1 {
-    font-size: 2.5rem;
-    color: var(--white);
+.col1 h1,
+.col1 h2,
+.col1 h3 {
+    color: var(--text);
+    transition: color 0.3s;
 }
 
-body.light .col1 h1 {
-    color: var(--light-text);
+.col1 h1 {
+    font-size: 2.5rem;
+}
+
+.col1 h2 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
 }
 
 .col1 h3 {
     font-size: 2rem;
     margin: 0.5rem 0;
+    color: var(--primary);
 }
 
 .edit-text::after {
@@ -241,11 +288,8 @@ body.light .col1 h1 {
 
 .col1 p {
     margin: 1.2rem 0;
-    color: var(--white);
-}
-
-body.light .col1 p {
-    color: var(--light-text);
+    color: var(--text);
+    opacity: 0.9;
 }
 
 /* Hero Buttons */
@@ -255,7 +299,7 @@ body.light .col1 p {
     border-radius: 25px;
     font-weight: 600;
     margin-right: 1rem;
-    transition: background 0.3s;
+    transition: all 0.3s;
 }
 
 .btn:first-of-type {
@@ -269,18 +313,13 @@ body.light .col1 p {
 
 .btn:nth-of-type(2) {
     background: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
+    color: var(--text);
+    border: 2px solid var(--border-color);
 }
 
 .btn:nth-of-type(2):hover {
-    background: var(--white);
-    color: #333;
-}
-
-body.light .btn:nth-of-type(2) {
-    color: var(--light-text);
-    border-color: var(--primary);
+    background: var(--text);
+    color: var(--bg);
 }
 
 /* Hero Image */
@@ -292,24 +331,30 @@ body.light .btn:nth-of-type(2) {
 .col2 img {
     width: 100%;
     max-width: 400px;
-    
 }
 
-/* — Responsive — */
+/* — Divider — */
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--text);
+    opacity: 0.2;
+    margin: 1.5rem 0;
+}
+
+/* — Responsive Design — */
 @media (max-width: 768px) {
+
+    .header-inner,
+    nav,
+    .nav-menu,
+    .row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     #site-header {
-        flex-direction: column;
         padding: 1rem;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        gap: 1rem;
     }
 
     .dropdown-menu {
@@ -318,12 +363,14 @@ body.light .btn:nth-of-type(2) {
         padding-left: 1rem;
     }
 
-    .row {
-        flex-direction: column;
-    }
-
     .col1,
     .col2 {
         flex: 1 1 100%;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
     }
 }

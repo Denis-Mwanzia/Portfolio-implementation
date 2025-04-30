@@ -1,6 +1,6 @@
 // Typing effect for "Web Developer"
 const editText = document.querySelector('.edit-text');
-const words = ['Web Developer', 'Designer', 'Photographer'];
+const words = ['Web Developer', 'Web Designer', 'Photographer', 'Freelancer'];
 let idx = 0,
   charIdx = 0,
   adding = true;
