@@ -1,0 +1,329 @@
+/* — Reset & Base — */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+/* — Color Variables — */
+:root {
+    --primary: #00d084;
+    --white: #ffffff;
+    --dark-bg: #203a43;
+    --light-bg: #f5f5f5;
+    --dark-text: #f5f5f5;
+    --light-text: #203a43;
+    --bg: var(--dark-bg);
+    --text: var(--dark-text);
+}
+
+body.light {
+    --bg: var(--light-bg);
+    --text: var(--light-text);
+}
+
+img,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* — Header / Nav — */
+#site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 32, 39, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16rem;
+    max-width: calc(1200px - 4rem);
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    width: 36px;
+    height: auto;
+}
+
+.logo span {
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+body.light .logo span {
+    color: var(--light-text);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-menu li {
+    list-style: none;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+body.light nav ul li a {
+    color: var(--light-text);
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+/* Dropdown */
+.nav-menu li.dropdown>a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg);
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    min-width: 180px;
+    z-index: 1000;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--primary);
+}
+
+@media (min-width: 769px) {
+    .nav-menu li.dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/*  Hire Buttons */
+.nav-menu li.hire a {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-menu li.hire a:hover {
+    background: #02b075;
+}
+
+body.light .nav-menu li.hire a {
+    background: var(--bg);
+    color: var(--light-text);
+}
+
+/* Search & Dark-mode toggle */
+.lightDark-mode {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--white);
+    transition: color 0.3s;
+}
+
+body.light .lightDark-mode {
+    color: var(--light-text);
+}
+
+/* — Hero Section — */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.col1,
+.col2 {
+    flex: 1 1 45%;
+}
+
+.col1 h1 {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+body.light .col1 h1 {
+    color: var(--light-text);
+}
+
+.col1 h3 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
+.edit-text::after {
+    content: '|';
+    margin-left: 0.2rem;
+    animation: blink 1s infinite;
+    color: var(--primary);
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.col1 p {
+    margin: 1.2rem 0;
+    color: var(--white);
+}
+
+body.light .col1 p {
+    color: var(--light-text);
+}
+
+/* Hero Buttons */
+.btn {
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-right: 1rem;
+    transition: background 0.3s;
+}
+
+.btn:first-of-type {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn:first-of-type:hover {
+    background: #02b075;
+}
+
+.btn:nth-of-type(2) {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn:nth-of-type(2):hover {
+    background: var(--white);
+    color: #333;
+}
+
+body.light .btn:nth-of-type(2) {
+    color: var(--light-text);
+    border-color: var(--primary);
+}
+
+/* Hero Image */
+.col2 {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.col2 img {
+    width: 100%;
+    max-width: 400px;
+    
+}
+
+/* — Responsive — */
+@media (max-width: 768px) {
+    #site-header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        padding-left: 1rem;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col1,
+    .col2 {
+        flex: 1 1 100%;
+    }
+}
