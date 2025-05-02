@@ -373,12 +373,12 @@ nav {
 
 /* About Section */
 #about {
-    background: var(--about-bg, #fff);
+    background: var(--about-bg, #f9fafb);
     margin-top: 12px;
 }
 
 :root {
-    --about-bg: #fff;
+    --about-bg: #f9fafb;
     --about-text: #2d2d2d;
     --btn-secondary-color: #2d2d2d;
 }
@@ -411,7 +411,6 @@ body.light #about {
     color: var(--about-bg);
 }
 
-/* Rest of your existing CSS remains the same */
 .row {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -419,7 +418,7 @@ body.light #about {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 36px 20px;
 }
 
 .col1 img {
@@ -576,4 +575,121 @@ body.light #about {
         width: 100%;
         margin: 10px 0;
     }
+}
+
+/* Services Section - Theme Variables */
+:root {
+    --service-bg: #f9fafb;
+    --service-text: #2d3748;
+    --card-bg: #fff;
+    --card-text: #2d3748;
+    --card-paragraph: #718096;
+}
+
+body.light {
+    --service-bg: #01181D;
+    --service-text: #ffffff;
+    --card-bg: #1a2c38;
+    --card-text: #e2e8f0;
+    --card-paragraph: #a0aec0;
+}
+
+/* Services Section Styles */
+#services {
+    padding: 80px 0;
+    background: var(--service-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.service-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.service-title h3 {
+    font-size: 2.5rem;
+    color: var(--service-text);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.rows {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.col,
+.cols {
+    flex: 1;
+}
+
+.service-single {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.service-single:hover {
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.service-icon i {
+    color: #00d084;
+    font-size: 1.8rem;
+}
+
+.service-description h5 {
+    font-size: 1.4rem;
+    color: var(--card-text);
+    margin-bottom: 15px;
+}
+
+.service-description p {
+    color: var(--card-paragraph);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+#services a {
+    color: #00d084;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    transition: color 0.3s ease;
+}
+
+#services a:hover {
+    color: #00c77e;
+}
+
+#services a span {
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+#services a:hover span {
+    transform: translateX(5px);
 }
