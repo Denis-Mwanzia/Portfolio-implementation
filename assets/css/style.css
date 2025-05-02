@@ -693,3 +693,172 @@ body.light {
 #services a:hover span {
     transform: translateX(5px);
 }
+
+/* Skills Section - Theme Variables */
+:root {
+    --bg-about-services: #f9fafb;
+    --text-primary: #2d3748;
+    --card-paragraph: #718096;
+    --progress-bg: #e2e8f0;
+}
+
+body.light {
+    --bg-about-services: #01181D;
+    --text-primary: #ffffff;
+    --card-paragraph: #a0aec0;
+    --progress-bg: #2d3748;
+}
+
+/* Skills Section Styles */
+#skill {
+    padding: 80px 0;
+    background: var(--bg-about-services);
+}
+
+#skill .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+#skill .rows {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+#skill .col1 {
+    flex: 1;
+}
+
+#skill .col1 img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#skill .col2 {
+    flex: 1;
+}
+
+#skill .small-title {
+    font: 500 14px/1.2 'Segoe UI', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #00d084;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+#skill .small-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background: #00d084;
+}
+
+#skill .title-main {
+    font: 600 32px/1.3 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+#skill .description {
+    font: 400 16px/1.8 'Segoe UI', sans-serif;
+    color: var(--card-paragraph);
+    margin-bottom: 30px;
+}
+
+.progress-info {
+    margin-bottom: 25px;
+}
+
+.progress-title {
+    font: 500 15px/1.6 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 6px;
+    background: var(--progress-bg);
+    border-radius: 4px;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: attr(data-percent);
+    position: absolute;
+    right: 0;
+    top: -22px;
+    font: 500 14px/1 'Segoe UI', sans-serif;
+    color: #00d084;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #00d084;
+    border-radius: 4px;
+    width: 0;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Staggered Animations */
+.progress-info:nth-child(1) .progress-fill {
+    transition-delay: 0.2s;
+}
+
+.progress-info:nth-child(2) .progress-fill {
+    transition-delay: 0.4s;
+}
+
+.progress-info:nth-child(3) .progress-fill {
+    transition-delay: 0.6s;
+}
+
+.progress-info:nth-child(4) .progress-fill {
+    transition-delay: 0.8s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #skill .rows {
+        flex-direction: column;
+    }
+
+    #skill .col1 {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 40px;
+    }
+
+    #skill .title-main {
+        font-size: 28px;
+    }
+
+    #skill .description {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #skill {
+        padding: 60px 0;
+    }
+
+    #skill .title-main {
+        font-size: 24px;
+    }
+
+    .progress-title {
+        font-size: 14px;
+    }
+
+    .progress-bar::after {
+        font-size: 12px;
+    }
+}

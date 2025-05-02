@@ -29,3 +29,33 @@ toggle.addEventListener('click', () => {
     ? '<i class="ri-sun-line"></i>'
     : '<i class="ri-moon-line"></i>';
 });
+
+// Skill Progress Bar
+document.addEventListener('DOMContentLoaded', function () {
+  const progressBars = document.querySelectorAll('.progress-fill');
+  const skillSection = document.getElementById('skill');
+
+  const animateProgress = () => {
+    progressBars.forEach((bar) => {
+      const targetWidth = bar.parentElement.getAttribute('data-percent');
+      bar.style.width = targetWidth;
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateProgress();
+          observer.unobserve(skillSection);
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+      rootMargin: '0px 0px -50px 0px',
+    }
+  );
+
+  observer.observe(skillSection);
+});
