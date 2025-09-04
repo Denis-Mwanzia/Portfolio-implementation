@@ -17,6 +17,9 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    
+    <!-- Loading Screen -->
+    <script src="assets/js/loading.js"></script>
 
     <title>UI Portfolio | John Watson</title>
 </head>
@@ -222,7 +225,278 @@
         </div>
     </section>
 
-    
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="portfolio-title">
+                <h6 class="small-title">MY WORK</h6>
+                <h3>Recent Projects</h3>
+                <p>Here are some of my recent projects that showcase my skills and creativity.</p>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                <button class="filter-btn" data-filter="app">App Design</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600" alt="E-commerce Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>E-commerce Platform</h4>
+                                <p>Modern online store with seamless user experience</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="ri-eye-line"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="ri-external-link-line"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-image">
+                        <img src="https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mobile App">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Social Media App</h4>
+                                <p>Intuitive mobile application for social networking</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="ri-eye-line"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="ri-external-link-line"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Brand Identity">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Brand Identity Design</h4>
+                                <p>Complete brand identity for tech startup</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="ri-eye-line"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="ri-external-link-line"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Corporate Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Corporate Website</h4>
+                                <p>Professional website for consulting firm</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="ri-eye-line"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="ri-external-link-line"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-image">
+                        <img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dashboard App">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Analytics Dashboard</h4>
+                                <p>Data visualization and analytics platform</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="ri-eye-line"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="ri-external-link-line"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-image">
+                        <img src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Logo Design">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Logo Collection</h4>
+                                <p>Creative logo designs for various industries</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link"><i class="ri-eye-line"></i></a>
+                                    <a href="#" class="portfolio-link"><i class="ri-external-link-line"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="testimonials-title">
+                <h6 class="small-title">TESTIMONIALS</h6>
+                <h3>What Clients Say</h3>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="ri-double-quotes-l"></i>
+                        </div>
+                        <p>"John delivered exceptional work on our e-commerce platform. His attention to detail and creative solutions exceeded our expectations."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Client">
+                            <div class="author-info">
+                                <h5>Sarah Johnson</h5>
+                                <span>CEO, TechCorp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="ri-double-quotes-l"></i>
+                        </div>
+                        <p>"Working with John was a pleasure. He transformed our brand identity and created a stunning website that perfectly represents our company."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Client">
+                            <div class="author-info">
+                                <h5>Michael Chen</h5>
+                                <span>Founder, StartupXYZ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="ri-double-quotes-l"></i>
+                        </div>
+                        <p>"Professional, creative, and reliable. John's work helped us increase our online presence significantly. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Client">
+                            <div class="author-info">
+                                <h5>Emily Rodriguez</h5>
+                                <span>Marketing Director, InnovateCo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-title">
+                <h6 class="small-title">GET IN TOUCH</h6>
+                <h3>Let's Work Together</h3>
+                <p>Ready to start your next project? Let's discuss how I can help bring your ideas to life.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info-section">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>john.watson@example.com</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                        <h4>Phone</h4>
+                        <p>+44 20 7946 0958</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <h4>Location</h4>
+                        <p>London, United Kingdom</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-section">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <i class="fab fa-asymmetrik"></i><span>UI Portfolio</span>
+                    </div>
+                    <p>Creating digital experiences that inspire and engage users worldwide.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h5>Follow Me</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="ri-behance-line"></i></a>
+                        <a href="#"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#"><i class="ri-github-fill"></i></a>
+                        <a href="#"><i class="ri-twitter-line"></i></a>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 John Watson. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Main JS -->
     <script src="assets/js/script.js" defer></script>
